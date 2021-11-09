@@ -6,18 +6,48 @@
     <div class="text-center">
         <h1>Welcome to register page.</h1>
     </div>
-        <form class="row justify-content-center" autocomplete="on" action="./register" method="POST">
+        <form class="row justify-content-center" autocomplete="on" action="./register" method="POST" id="regform">
             <div class="col-6">
-                <label for="email"><p>Your email</p></label>
+                <p>Your email</p>
                 <input type="email" class="form-control" id="email" name="email">
-                <label for="username"><p>Your username</p></label>
+                <p>Your username</p>
                 <input type="text" class="form-control" id="username" name="username">
-                <label for="password"><p>Your password</p></label>
-                <input type="password" class="form-control" id="password" name="password">
-                <button type="submit" class="btn btn-success"><p>Register</p></button>
+                <p>Your password</p>
+                <input type="password" class="form-control" id="password" name="password"><br>
+                <button type="submit" class="btn btn-secondary">Register</button>
+                <a href="../login" class="btn btn-dark">Login</a>
             </div>
-
         </form>
 </div>
 </body>
+
+<script>
+    $(document).ready(function () {
+        $('#regform').validate({
+            rules: {
+                email: {
+                    required: true,
+                    minlength: 4
+                },
+                username: {
+                    required: true,
+                    minlength: 4
+                },
+                password: {
+                    required: true,
+                    minlength: 6
+                }
+            },
+            messages: {
+                email: 'Incorrect email, please check your email.',
+                username: 'Minimal length is 4.',
+                password: 'Minimal password length is 6.'
+            },
+            submitHandler: function (form) {
+                form.submit();
+            }
+        })
+    })
+</script>
+
 </html>
