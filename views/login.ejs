@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<%- include('head.ejs') %>
+<body>
+<div class="container">
+    <div class="text-center">
+        <h1>Welcome to authorization page.</h1>
+    </div>
+    <form class="row justify-content-center" autocomplete="on" action="./login" method="POST" id="logform">
+        <div class="col-6">
+            <p>Your username or email</p>
+            <input type="text" class="form-control" id="username" name="username">
+            <p>Your password</p>
+            <input type="password" class="form-control" id="password" name="password"><br>
+            <button type="submit" class="btn btn-secondary">Login</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

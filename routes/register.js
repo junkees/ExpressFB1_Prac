@@ -15,13 +15,12 @@ router.post('/', async function (req, res, next) {
     let encryptPassword = await bcrypt.hash(password, saltRounds);
     connect.query(`INSERT INTO users (email, username, password, role) VALUES (?, ?, ?, ?)`, [email, username, encryptPassword, 'user'], function (err, result) {
         if(err) {
-            return;
+            res.render('error', { title: '500', message: 'Register error =(', error: 'You have used data that is already taken by other users.' })
         } else {
             res.render('index', { title: 'Регистрация завершена!' });
         }
     });
 
-    next();
 })
 
 
